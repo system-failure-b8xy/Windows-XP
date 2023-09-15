@@ -1,0 +1,26 @@
+<!doctype html>
+<script src="libv86.js"></script>
+
+<script>
+onload = function()
+{
+    new V86Starter({
+        wasm_path: "v86.wasm",
+        bios: { url: "seabios.bin" },
+        vga_bios: { url: "vgabios.bin" },
+        hda: {
+            url: "winxp.img",
+            size: 2 * 1024 * 1024 * 1024,
+            async: true
+        },
+        memory_size: 512 * 1024 * 1024,
+        screen_container: screen_container,
+        autostart: true,
+    });
+}
+</script>
+
+<div id=screen_container>
+    <div style="white-space: pre; font: 14px monospace"></div>
+    <canvas style="display: none"></canvas>
+</div>
